@@ -17,7 +17,7 @@ gem 'figaro', '>= 1.0.0.rc1'
 gem 'high_voltage'
 gem 'omniauth'
 gem 'omniauth-tumblr'
-gem "tumblr_client", :git => 'git://github.com/albertobissacco/tumblr_client.git'
+gem "tumblr_client", :github => 'albertobissacco/tumblr_client'
 gem 'unicorn'
 gem 'unicorn-rails'
 group :development do
