@@ -1,14 +1,14 @@
 class User < ActiveRecord::Base
+  serialize :blogs, Array
 
   def self.create_with_omniauth(auth)
+    blogs = auth["info"]["blogs"].map { |blog| blog["name"] }
     create! do |user|
-      # user.provider = auth['provider']
+      user.name = auth['info']['name']
       user.uid = auth['uid']
       user.token = auth["credentials"]["token"]
       user.secret = auth["credentials"]["secret"]
-      if auth['info']
-         user.name = auth['info']['name'] || ""
-      end
+      user.blogs = blogs
     end
   end
 

@@ -2,6 +2,10 @@
   <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">@<%= current_user.name %>  <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            <% current_user.blogs.each do |blog| %>
+            <li><%= link_to "#{blog}.tumblr.com", blog_path(blog) %></li>
+            <% end %>
+            <li class="divider"></li>
             <li><%= link_to "Log out", logout_path %></li>
           </ul>
         </li>

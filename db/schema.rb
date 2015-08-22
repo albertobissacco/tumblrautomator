@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822133917) do
+ActiveRecord::Schema.define(version: 20150822144334) do
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20150822133917) do
     t.string   "secret"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "email"
+    t.text     "blogs"
   end
 
 end

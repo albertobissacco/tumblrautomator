@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     user = User.find_by(:uid => auth['uid']) || User.create_with_omniauth(auth)
+    user.update_attribute :blogs, auth["info"]["blogs"].map { |blog| blog["name"] }
     reset_session
     session[:user_id] = user.id
     redirect_to root_url, :notice => 'Signed in!'
