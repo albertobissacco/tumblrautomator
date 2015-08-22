@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   get '/auth/:provider/callback' => 'sessions#create'
-  get '/signin' => 'sessions#new', :as => :signin
-  get '/signout' => 'sessions#destroy', :as => :signout
+  get '/login' => 'sessions#new', :as => :login
+  get '/logout' => 'sessions#destroy', :as => :logout
   get '/auth/failure' => 'sessions#failure'
 
   resources :user, param: :name, :only => "show" do
