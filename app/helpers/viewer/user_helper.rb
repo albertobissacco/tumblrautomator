@@ -1,0 +1,2 @@
+module Viewer::UserHelper
+end

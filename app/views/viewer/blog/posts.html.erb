@@ -1,0 +1,9 @@
+<h1>Viewer::Blog#posts</h1>
+<p>Find me in app/views/viewer/blog/posts.html.erb</p>
+<% @blog["posts"].each do |post| %>
+<% if post["photos"] %>
+  <%= image_tag post["photos"].first["alt_sizes"][0]["url"] %>
+<% end %>
+<% end %>
+
+<%= debug @blog %>

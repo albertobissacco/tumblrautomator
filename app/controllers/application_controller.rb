@@ -33,4 +33,14 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def set_client(client=current_user)
+      Tumblr.configure do |config|
+          config.consumer_key = Rails.application.secrets.omniauth_provider_key
+          config.consumer_secret = Rails.application.secrets.omniauth_provider_secret
+          config.oauth_token = client.token
+          config.oauth_token_secret = client.secret
+        end
+      @client = Tumblr::Client.new
+    end
+
 end
